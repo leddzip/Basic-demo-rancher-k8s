@@ -1,15 +1,31 @@
+NETWORK_TYPE = "private"
+
 BOX            = "bento/ubuntu-20.04"
 RAM            = 4096
 CPUS           = 2
 BASE_IP        = "192.168.100"
+NETWORK = {
+  "private" => {
+    "value" => "private_network",
+    "base_ip" => "192.168.100"
+  },
+  "public" => {
+    "value" => "public_network",
+    "base_ip" => "192.168.1"
+  }
+}
 
-$DEFAULT_NETWORK_INTERFACE = `ip route | awk '/^default/ {printf "%s", $5; exit 0}'`
+DEFAULT_NETWORK_INTERFACE = `ip route | awk '/^default/ {printf "%s", $5; exit 0}'`
 
 
 def shared_config(component, ip, ram, cpus)
   # TODO: put all the shared config inside this function
   component.vm.box = BOX
-  component.vm.network "private_network", ip: "#{BASE_IP}.#{ip}"
+  if NETWORK_TYPE == "private"
+    component.vm.network NETWORK["private"]["value"], ip: "#{NETWORK["private"]["base_ip"]}.#{ip}"
+  elsif NETWORK_TYPE == "public"
+    component.vm.network NETWORK["public"], bridge: "#{DEFAULT_NETWORK_INTERFACE}", ip: "#{NETWORK["public"]["base_ip"]}.#{ip}"
+  end
 
   component.vm.provider :virtualbox do |vb_config|
     vb_config.memory = ram
