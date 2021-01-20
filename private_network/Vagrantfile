@@ -27,14 +27,15 @@ Vagrant.configure("2") do |config|
   # this will be the load balancer node with nginx in order to
   # redirect request to the right address and port
   config.vm.define "balancer" do |balancer|
-    config.vm.provision :shell, path: "provisions/nginx.sh"
+    balancer.vm.provision :shell, path: "provisions/nginx.sh"
+    balancer.vm.provision :shell, path: "provisions/bind9/bind9.sh"
     shared_config balancer, "250", 2048, 1
   end
 
   # this node is responsible to hold all rancher specific process and configs
   # it is not intended to be run as a kubernetes node
   config.vm.define "rancher" do |rancher|
-    config.vm.provision :shell, path: "provisions/docker.sh"
+    rancher.vm.provision :shell, path: "provisions/docker.sh"
     rancher.vm.provision :shell, path: "provisions/rancher.sh"
     shared_config rancher, "249", 2048, 2
   end
@@ -42,14 +43,14 @@ Vagrant.configure("2") do |config|
   # this is the first node of the kubernetes cluster
   # It will also be the master node
   config.vm.define "kube-1" do |kube1|
-    config.vm.provision :shell, path: "provisions/docker.sh"
+    kube1.vm.provision :shell, path: "provisions/docker.sh"
     shared_config kube1, "248", RAM, CPUS
   end
 
   # this is the second node of the kubernetes cluster
   # It is a slave node
   config.vm.define "kube-2" do |kube2|
-    config.vm.provision :shell, path: "provisions/docker.sh"
+    kube2.vm.provision :shell, path: "provisions/docker.sh"
     shared_config kube2, "247", RAM, CPUS
   end
 
