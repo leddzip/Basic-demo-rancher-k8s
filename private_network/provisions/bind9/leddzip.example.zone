@@ -1,8 +1,8 @@
 ;
-; BIND data file for leddzip.io based domain
+; BIND data file for leddzip.example based domain
 ;
 $TTL	604800
-@	IN	SOA	leddzip. root.leddzip.io. (
+@	IN	SOA	leddzip. root.leddzip.example. (
 			      2		; Serial
 			 604800		; Refresh
 			  86400		; Retry
@@ -10,7 +10,7 @@ $TTL	604800
 			 604800 )	; Negative Cache TTL
 	IN	A	192.168.100.250
 ;
-@	IN	NS	ns.leddzip.io.
+@	IN	NS	ns.leddzip.example.
 @	IN	A	192.168.100.250
 @	IN	AAAA	::1
 ns  IN  A   192.168.100.250

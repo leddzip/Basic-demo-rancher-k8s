@@ -2,7 +2,7 @@
 ; BIND reverse data file for local loopback interface
 ;
 $TTL    604800
-@       IN      SOA     ns.leddzip.io. root.leddzip.io. (
+@       IN      SOA     ns.leddzip.example. root.leddzip.example. (
                  2013012113         ; Serial
                      604800         ; Refresh
                       86400         ; Retry
@@ -10,4 +10,4 @@ $TTL    604800
                      604800 )       ; Negative Cache TTL
 ;
 @       IN      NS      ns.
-10      IN      PTR     ns.leddzip.io.
+10      IN      PTR     ns.leddzip.example.

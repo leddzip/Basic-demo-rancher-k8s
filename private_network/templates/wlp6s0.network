@@ -1,0 +1,5 @@
+[Match]
+Name=wlp6s0
+
+[Network]
+DNS=192.168.100.250

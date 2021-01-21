@@ -6,9 +6,9 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "leddzip.io" {
+zone "leddzip.example" {
     type master;
-    file "/etc/bind/namespace/leddzip.io.zone";
+    file "/etc/bind/namespace/leddzip.example.zone";
 };
 
 zone "100.168.192.in-addr.arpa" {

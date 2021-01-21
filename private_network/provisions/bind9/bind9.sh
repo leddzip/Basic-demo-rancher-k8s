@@ -12,7 +12,7 @@ sudo mkdir /etc/bind/zones
 
 sudo cp /vagrant/provisions/bind9/named.conf.options /etc/bind/
 sudo cp /vagrant/provisions/bind9/named.conf.local /etc/bind/
-sudo cp /vagrant/provisions/bind9/leddzip.io.zone /etc/bind/namespace/
+sudo cp /vagrant/provisions/bind9/leddzip.example.zone /etc/bind/namespace/
 sudo cp /vagrant/provisions/bind9/db.192 /etc/bind/zones/
 
 sudo systemctl restart bind9
