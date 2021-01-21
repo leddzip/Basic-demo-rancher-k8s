@@ -1,9 +1,8 @@
+interface = $$(ip route | awk '/^default/ {printf "%s", $$5; exit 0}')
+
 dns:
-	sudo cp /etc/systemd/resolved.conf /etc/systemd/resolved.conf.temp
-	sudo cp /etc/systemd/resolved.conf.temp ./resolved.conf.temp.$$(uuidgen)
-	sudo cp templates/resolved.conf /etc/systemd
-	sudo systemctl restart systemd-resolved.service
+	sudo systemd-resolve --interface $(interface) --set-dns 192.168.100.250
 
 revert-dns:
-	sudo mv /etc/systemd/resolved.conf.temp /etc/systemd/resolved.conf
-	sudo systemctl restart systemd-resolved.service
+	sudo nmcli networking off
+	sudo nmcli networking on
