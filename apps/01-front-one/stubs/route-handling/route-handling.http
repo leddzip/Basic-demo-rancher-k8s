@@ -1,0 +1,4 @@
+GET http://localhost:3001/app-1/api/v1/random
+Accept: application/json
+
+###
