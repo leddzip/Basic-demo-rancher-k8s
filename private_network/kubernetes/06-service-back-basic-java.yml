@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: basic-back-java-1
+  namespace: team1
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31001
+  selector:
+    app: basic-back-java-1

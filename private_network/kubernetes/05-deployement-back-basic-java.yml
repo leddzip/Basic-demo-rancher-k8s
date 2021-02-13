@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-back-java-1
+  namespace: team1
+spec:
+  selector:
+    matchLabels:
+      app: basic-back-java-1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: basic-back-java-1
+    spec:
+      containers:
+        - name: basic-back-java-1
+          image: leddzip/demo-rancher-back-basic-java-1
+          imagePullPolicy: Always
+          ports:
+              - containerPort: 8080
+      restartPolicy: Always
