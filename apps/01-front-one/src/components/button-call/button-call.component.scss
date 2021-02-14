@@ -1,0 +1,25 @@
+.description {
+  color: #494949;
+}
+
+.mainContainer {
+  padding: 0.5rem;
+}
+
+.description {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 2px;
+  background: #f9f9f9;
+  box-shadow: inset 5px 0px 0 0 #dcdcdc;
+  -webkit-box-shadow: inset 5px 0px 0 0 #dcdcdc;
+}
+
+.response {
+  width: 25rem;
+}
+
+.button .p-progress-spinner {
+  height: 18px;
+  width: 18px;
+}

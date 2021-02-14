@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {ApiErrorEmitter} from './event/ErrorEmitter';
+import {ErrorModal} from './components/error-modal/error-modal.component';
+import {ButtonGroupComponent} from './components/button-group/button-group.component';
+import {ApiServiceBasicJava} from './services/api-service-basic-java';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  apiErrorEmitter: ApiErrorEmitter;
+  apiServiceBasicJava: ApiServiceBasicJava;
+
+  constructor(props: {}) {
+    super(props);
+    this.apiErrorEmitter = new ApiErrorEmitter();
+    this.apiServiceBasicJava = new ApiServiceBasicJava(this.apiErrorEmitter);
+  }
+
+  render() {
+    return (
+        <div className="App">
+          <ButtonGroupComponent apiErrorEmitter={this.apiErrorEmitter}
+                                apiServiceBasicJava={this.apiServiceBasicJava}/>
+          <ErrorModal apiErrorEmitter={this.apiErrorEmitter}/>
+        </div>
+    );
+  }
 }
 
 export default App;
