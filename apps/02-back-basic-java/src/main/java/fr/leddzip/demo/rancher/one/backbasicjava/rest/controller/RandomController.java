@@ -1,5 +1,6 @@
 package fr.leddzip.demo.rancher.one.backbasicjava.rest.controller;
 
+import fr.leddzip.demo.rancher.one.backbasicjava.rest.resources.RandomUUIDOut;
 import java.util.Random;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -16,8 +17,8 @@ public class RandomController {
     @GetMapping
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public String getRandom() {
-        return UUID.randomUUID().toString();
+    public RandomUUIDOut getRandom() {
+        return new RandomUUIDOut(UUID.randomUUID().toString());
     }
 
 }
