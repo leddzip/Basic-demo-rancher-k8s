@@ -17,4 +17,4 @@ def welcome():
 
 
 if __name__ == '__main__':
-    waitress.serve(app, listen='*:'+os.getenv('PORT'))
+    waitress.serve(app, listen='*:5000')
