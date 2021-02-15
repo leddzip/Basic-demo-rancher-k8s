@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: basic-back-java-1
+  name: basic-back-python-1
   namespace: team1
 spec:
   selector:
     matchLabels:
-      app: basic-back-java-1
+      app: basic-back-python-1
   replicas: 2
   template:
     metadata:
       labels:
-        app: basic-back-java-1
+        app: basic-back-python-1
     spec:
       containers:
-        - name: basic-back-java-1
-          image: leddzip/demo-rancher-back-basic-java-1:1.1.1
+        - name: basic-back-python-1
+          image: leddzip/demo-rancher-back-basic-python-1:1.0.0
           imagePullPolicy: Always
           ports:
-              - containerPort: 8080
+            - containerPort: 5000
       restartPolicy: Always
