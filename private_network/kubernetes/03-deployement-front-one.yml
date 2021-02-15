@@ -15,8 +15,11 @@ spec:
     spec:
       containers:
         - name: demo-rancher-1
-          image: leddzip/demo-rancher-react-1
+          image: leddzip/demo-rancher-react-1:1.1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80
+          env:
+            - name: REACT_APP_API_URL_1
+              value: http://192.168.100.248:31001
       restartPolicy: Always

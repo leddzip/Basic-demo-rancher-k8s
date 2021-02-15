@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: basic-back-java-1
-          image: leddzip/demo-rancher-back-basic-java-1
+          image: leddzip/demo-rancher-back-basic-java-1:1.1.1
           imagePullPolicy: Always
           ports:
               - containerPort: 8080

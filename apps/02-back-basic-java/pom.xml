@@ -12,7 +12,7 @@
 
   <groupId>fr.leddzip.demo.rancher.one</groupId>
   <artifactId>back-basic-java</artifactId>
-  <version>1.1</version>
+  <version>1.1.1</version>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
