@@ -1,3 +1,4 @@
 {
-  "/app-1/api/v1/random": "/randomOne"
+  "/app-1/api/v1/random": "/randomOne",
+  "/app-2/api/v1/random": "/randomOne"
 }
