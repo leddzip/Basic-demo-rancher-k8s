@@ -1,0 +1,2 @@
+internal-service:
+  base-url: ${INTERNAL_SERVICE_URL}

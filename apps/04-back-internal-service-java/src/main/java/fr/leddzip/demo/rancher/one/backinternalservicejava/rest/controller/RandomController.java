@@ -1,6 +1,6 @@
-package fr.leddzip.demo.rancher.one.backbasicjava.rest.controller;
+package fr.leddzip.demo.rancher.one.backinternalservicejava.rest.controller;
 
-import fr.leddzip.demo.rancher.one.backbasicjava.rest.resources.RandomUUIDOut;
+import fr.leddzip.demo.rancher.one.backinternalservicejava.rest.resources.RandomUUIDOut;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;

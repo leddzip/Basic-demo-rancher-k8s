@@ -22,7 +22,7 @@ WORKDIR /usr/share/nginx/html
 COPY --from=builder /opt/web/build /usr/share/nginx/html
 EXPOSE 80
 
-ENV REACT_APP_API_URL-1=none
+ENV REACT_APP_API_URL_1=none
 
 RUN apk --no-cache add curl bash
 RUN curl -L https://github.com/a8m/envsubst/releases/download/v1.1.0/envsubst-`uname -s`-`uname -m` -o envsubst && \

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: internal-back-java-1
+  namespace: team1
+spec:
+  selector:
+    matchLabels:
+      app: internal-back-java-1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: internal-back-java-1
+    spec:
+      containers:
+        - name: internal-back-java-1
+          image: leddzip/demo-rancher-back-internal-service-java-1:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
