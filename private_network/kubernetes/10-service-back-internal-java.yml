@@ -5,9 +5,9 @@ metadata:
   name: internal-back-java-1
   namespace: team1
 spec:
-  type: ClusterIP
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 8080
   selector:

@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: connected-back-java-1
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,10 +15,10 @@ spec:
     spec:
       containers:
         - name: connected-back-java-1
-          image: leddzip/demo-rancher-back-connected-service-java-1:1.0.0
+          image: leddzip/demo-rancher-back-connected-service-java-1:1.0.1
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:
-            - name: INTERNAL_SERVICE_URL
-              value: http://internal-back-java-1
+            - name: SPRING_APPLICATION_JSON
+              value: "{\"internal-service\":{ \"base-url\": \"http://internal-back-java-1\"}}"

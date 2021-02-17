@@ -11,6 +11,6 @@ FROM openjdk:11-jre
 COPY --from=builder /usr/src/app/target/{{name}}-{{version}}.jar /usr/app/app.jar
 
 EXPOSE 8080
-ENV INTERNAL_SERVICE_URL=none
+ENV SPRING_APPLICATION_JSON=none
 
 ENTRYPOINT ["java", "-jar", "/usr/app/app.jar"]
